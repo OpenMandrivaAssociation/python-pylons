@@ -1,18 +1,14 @@
 %define	module		pylons
 %define tarname		Pylons
-%define name		python-%{module}
-%define version		1.0
-%define release		%mkrel 2
 
 Summary:		Pylons web framework
-Name:			%{name}
-Version:		%{version}
-Release:		%{release}
+Name:			python-%{module}
+Version:		1.0
+Release:		3
 Source0:		%{tarname}-%{version}.tar.gz
 License:		BSD
 Group:			Development/Python
 Url:			http://www.pylonshq.com/
-BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:		noarch
 BuildRequires:		python-setuptools
 Requires:		python-beaker >= 1.3-0.dev.0
@@ -41,12 +37,20 @@ website development in Python easy.
 %setup -q -n %{tarname}-%{version}
 
 %install
-%__rm -rf %{buildroot}
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
-
-%clean
-%__rm -rf %{buildroot}
+sed -i 's/.*egg-info$//' FILE_LIST
 
 %files -f FILE_LIST
-%defattr(-,root,root)
 %doc CHANGELOG LICENSE README.txt
+
+
+%changelog
+* Fri Apr 01 2011 Lev Givon <lev@mandriva.org> 1.0-2mdv2011.0
++ Revision: 649520
+- Add install dependencies.
+
+* Tue Nov 09 2010 Lev Givon <lev@mandriva.org> 1.0-1mdv2011.0
++ Revision: 595334
+- import python-pylons
+
+
