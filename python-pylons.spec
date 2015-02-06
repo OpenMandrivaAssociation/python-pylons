@@ -4,7 +4,7 @@
 Summary:		Pylons web framework
 Name:			python-%{module}
 Version:		1.0
-Release:		3
+Release:		4
 Source0:		%{tarname}-%{version}.tar.gz
 License:		BSD
 Group:			Development/Python
