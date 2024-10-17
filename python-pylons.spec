@@ -8,7 +8,7 @@ Release:		4
 Source0:		%{tarname}-%{version}.tar.gz
 License:		BSD
 Group:			Development/Python
-Url:			http://www.pylonshq.com/
+Url:			https://www.pylonshq.com/
 BuildArch:		noarch
 BuildRequires:		python-setuptools
 Requires:		python-beaker >= 1.3-0.dev.0
